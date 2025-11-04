@@ -13,3 +13,8 @@ LEXICON_RU : dict[str, str] = {
     'You win': 'Ты выиграл!',
     'You lose': 'Ты проиграл!',
 }
+
+LEXICON_COMMANDS_RU: dict[str, str] = {
+    '/start': 'Запустить бота',
+    '/help': 'Справка по работе бота'
+}

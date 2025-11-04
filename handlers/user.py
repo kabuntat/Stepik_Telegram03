@@ -1,10 +1,8 @@
-import logging
-from aiogram.types import Message, PollAnswer, ReplyKeyboardRemove
+from aiogram.types import Message
 from aiogram.filters import Command, CommandStart
 from lexicon.lexicon import LEXICON_RU
 from aiogram import Router, F
-from keyboards import my_keyboard_game, my_keyboard_start
-from aiogram.enums import PollType
+from keyboards.keyboards import my_keyboard_game, my_keyboard_start
 import random
 
 # Инициализируем роутер уровня модуля

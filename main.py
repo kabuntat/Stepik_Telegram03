@@ -5,25 +5,11 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from config_data.config import Config, load_config
 from handlers import other, user
-from aiogram.types import BotCommand
-
+from keyboards.set_menu import set_main_menu
 
 # Инициализируем логгер
 logger = logging.getLogger(__name__)
 
-
-# Создаем асинхронную функцию
-async def set_main_menu(bot: Bot):
-
-    # Создаем список с командами и их описанием для кнопки menu
-    main_menu_commands = [
-        BotCommand(command='/start',
-                   description='Запустить бота'),
-        BotCommand(command='/help',
-                   description='Справка по работе бота')
-    ]
-
-    await bot.set_my_commands(main_menu_commands)
 
 # Функция конфигурирования и запуска бота
 async def main() -> None:
@@ -43,7 +29,7 @@ async def main() -> None:
     bot=Bot(token=config.bot.token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
     dp = Dispatcher()
 
-    # Регистриуем роутеры в диспетчере
+    # Регистрируем роутеры в диспетчере
     dp.include_router(user.router_user)
     dp.include_router(other.router_other)
 
