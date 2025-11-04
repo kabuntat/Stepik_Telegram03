@@ -14,7 +14,7 @@ router_user = Router()
 @router_user.message(CommandStart())
 async def process_start_command(message: Message):
     await message.answer(
-        text='Давай сыграем в игру "Камень, ножницы, бумага"',
+        text=LEXICON_RU['/start'],
         reply_markup=my_keyboard_start
     )
 
@@ -32,11 +32,11 @@ async def process_game(message: Message):
     hand = random.choice(['✊','✌️','✋'])
     await message.answer(text=hand)
     if message.text == hand:
-        await message.answer(text=LEXICON_RU['Draw'], message_effect_id='5104841245755180586')
+        await message.answer(text=LEXICON_RU['Draw'])
     elif (message.text == "✊" and hand == '✋' or
           message.text == '✌️' and hand == '✊' or
           message.text == '✋' and hand == '✌️'):
-        await message.answer(text=LEXICON_RU['You lose'], message_effect_id='5046589136895476101')
+        await message.answer(text=LEXICON_RU['You lose'])
     else:
         await message.answer(text=LEXICON_RU['You win'], message_effect_id='5046509860389126442')
     await message.answer(
